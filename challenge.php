@@ -1,5 +1,5 @@
 <?php
-
+    $a = FALSE;
 ?>
 <!DOCTYPE html>
 <html>
