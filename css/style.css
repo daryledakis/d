@@ -1,0 +1,16 @@
+div.error {
+	color: red;
+}
+
+div.success {
+	color: green;
+}
+
+
+td.center {
+	text-align: center;
+}
+
+td.right {
+	text-align: right;
+}

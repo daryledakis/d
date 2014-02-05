@@ -1,0 +1,3296 @@
+s<div id="MoreAction" lang="MoreAction" class="morepop">
+<a lang="MoreAction" id="AddWebLead" href="#">Web Lead</a>
+<a lang="MoreAction" id="AddSupportCase" href="#">Support Case</a>
+</div>
+<div id="Header" class="panel">
+<div class="content">
+<h2><span class="convert_panes" id="nameHeader"></span>Leads Information</h2>
+
+<div class="dpane headpane" id="details">
+
+<div class="ptabs">
+<a href="#" class="sel" onclick="$('.dpane:eq(1)').show()"><span>Lead Info</span></a>
+<a href="#" onclick="$('.fpane:eq(0)').show(); $('.dpane:eq(1)').hide(); email_alerts();" ><span>Alerts</span></a>
+<a href="#" onclick="$('.fpane:eq(2)').show(); $('.dpane:eq(1)').hide(); getConversation();" ><span>Conversation</span></a>
+<a href="#" onclick="$('.fpane:eq(3)').show(); $('.dpane:eq(1)').hide(); showleadhistory();" ><span>Recent History</span></a>
+<a href="#" onclick="$('.fpane:eq(4)').show(); $('.dpane:eq(1)').hide(); load_duplicateList();" ><span>Duplicates</span></a>
+</div>
+
+
+<div class="fpane" style="display:block;">
+<form class="form" id="leadForm">
+<div class="fields">
+<input type="hidden" name="action" value="save" />
+<input type="hidden" name="method" value="/post" />
+<input type="hidden" name="module" value="leads" />
+<input type="text" name="item" style="display:none;" />
+<input type="hidden" name="salesperson" />
+<input type="text" name="usertype" style="display:none;" value="1" />
+<input type="text" name="emailid" style="display:none;" />
+<input type="hidden" name="id" />
+<input type="text" name="is_sp" style="display:none;" value="" />
+<input type="text" name="is_sd" style="display:none;" value="" />
+
+<div class="fcolumn1 tView">
+
+<div class="frow">
+<div class="flabel"><label for="client_record">Client Record</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="client_record"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Duplicate Lead</div>
+<div class="field fw">
+<div class="infield">
+<span class="dup_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="business">Business Name</label></div>
+<div class="field fw">
+<div class="infield" style="height: 17px">
+<span class="business"></span>
+<a href="#" target="_blank" id="google_search" >
+<span class="icon-google" style="position:absolute; margin-left: 10px;"></span>
+</a>
+<span class="google_search" style="display:none"></span>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="contact">Contact Name</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="fullname"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="job_title">Job Title</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="job_title"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="email">Email Address</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="email" onclick="mailto()"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="website">Website</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="website"></span>
+</div>
+</div>
+</div>
+
+<div class="frow" style="display:none">
+<div class="flabel"><label for="preferred_language">Preferred Language</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="preferred_language_d"></span>
+</div>
+</div>
+</div>
+
+<div class="frow" style="display:none">
+<div class="flabel"><label for="phone">Phone</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="phone"></span>
+</div>
+</div>
+</div>
+<!-- Skype -->
+<div class="frow" style="display:none">
+<div class="flabel"><label for="skype">Skype</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="skype"></span>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="birthday">Contact's Birthday</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="birthday"></span>
+</div>
+</div>
+</div>
+<div id="address">
+<hr />
+<div class="frow">
+<div class="flabel"><label for="timezone">Time Zone</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="timezone_name"></span>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="street">Street</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="street"></span>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="city">City / State</label></div>
+<div class="field hw2">
+<div class="infield">
+<span class="city"></span>
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<span class="state"></span>
+</div>
+</div>
+</div><!--frow-->
+<div class="frow">
+<div class="flabel"><label for="country">Country / Postal</label></div>
+<div class="field hw2">
+<div class="infield">
+<span class="country"></span>
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<span class="zip"></span>
+</div>
+</div>
+</div><!--frow-->
+
+</div>
+
+<div id="alternate">
+<hr />
+<div class="frow">
+<div class="flabel"><label for="altname">Alternate Contact Name</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="alt_name"></span>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="altphone">Alternate Contact Phone</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="alt_phone"></span>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="altemail">Alternate Contact Email</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="alt_email" onclick="mailto()"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="cross_sell">Cross Sell</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="cross_sell_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="email_trickle">E-mail Trickle</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="email_trickle_name"></span>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div id="social_links">
+<hr/>
+<div class="frow">
+<div class="flabel">Twitter</div>
+<div class="field fw">
+<div class="infield">
+<span class="twitter_link"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Facebook</div>
+<div class="field fw">
+<div class="infield">
+<span class="facebook_link"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">LinkedIn</div>
+<div class="field fw">
+<div class="infield">
+<span class="linkedin_link"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Quora</div>
+<div class="field fw">
+<div class="infield">
+<span class="quora_link"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">News Article</div>
+<div class="field fw">
+<div class="infield">
+<span class="news_article_link"></span>
+</div>
+</div>
+</div>
+</div>
+
+<hr/>
+<div class="frow">
+<div class="flabel" style="color: red; font-weight: bold; font-size: 12px">
+<label for="do_not_call">Do not call</label> </div>
+<div class="field fw">
+<div class="infield">
+<span class="call_name" style="color: white"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel" style="color: red; font-weight: bold; font-size: 12px">
+<label for="do_not_email">Do not email</label> </div>
+<div class="field fw">
+<div class="infield">
+<span class="email_name" style="color: white;"></span>
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel" style="color: red; font-weight: bold; font-size: 12px">
+<label for="do_not_expire">Do not expire</label> </div>
+<div class="field fw">
+<div class="infield">
+<span class="expire_name" style="color: white;"></span>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="expired_on">Lead Expiration Date</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="expired_on"></span>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="fcolumn2 tView">
+<span class="lstatus" style="display: none"></span>
+<div class="">
+<button type="button" class="button" name="find_duplicate" style="float:right;" ><span><b>Find Duplicates</b></span></button>
+<button type="button" class="button" name="convert" style="float:right;" ><span><b>Convert to Client</b></span></button>
+<!--
+<button type="button" class="button" name="follow" style="display: none; float:right;" ><span><b>Follow</b></span></button>
+<button type="button" class="button" name="unfollow" style="display: none; float:right;" ><span><b>Unfollow</b></span></button>
+-->
+</div>
+<div id="background">
+<div class="frow">
+<div class="flabel"><label for="data_interest">Data Interests</label></div>
+<div class="field fw">
+<div class="infield">
+<!-- <span class="data_interest_name"></span> -->
+<div><span class="data_interest_name_7"></span></div>
+<div><span class="data_interest_name_1"></span></div>
+<div><span class="data_interest_name_9"></span></div>
+<div><span class="data_interest_name_2"></span></div>
+<div><span class="data_interest_name_3"></span></div>
+<div><span class="data_interest_name_4"></span></div>
+<div><span class="data_interest_name_5"></span></div>
+<div><span class="data_interest_name_8"></span></div>
+<div><span class="data_interest_name_10"></span></div>
+<div><span class="data_interest_name_11"></span></div>
+<div><span class="data_interest_name_12"></span></div>
+<div><span class="data_interest_name_6"></span></div>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="competitor">Competitor</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="competitor_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="comp_status">Status with Competitor</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="comp_status_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="expdate">Competitor Exp. Date</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="exp_date"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="stage">Stage</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="stage_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="lost">Reason Lost</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="reason_lost_name"></span>
+<span class="reason_lost" style="display:none"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="email_trickle">E-mail Trickle</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="email_trickle_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="leadsource">Lead Source</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="lead_source_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">List</div>
+<div class="field fw">
+<div class="infield">
+<span class="user_list_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="btype">Business Type</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="btype_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="consignees">Consignees</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="consignees"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="shippers">Shippers</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="shippers"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="products">Products</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="products"></span>
+</div>
+</div>
+</div>
+
+<hr/>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="date_created">Date Created</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="created"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Created by</div>
+<div class="field fw">
+<div class="infield">
+<span class="creator_name"></span>
+</div>
+</div>
+</div>
+
+<div class="frow" style="display:none">
+<div class="flabel"><label for="createdby">Sales Developer</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="created_by_name"></span>
+
+</div>
+</div>
+</div>
+
+<span class="created_by_val" style="display:none"></span>
+
+
+
+<div class="frow" style="display:none">
+<div class="flabel"><label for="salesperson">Salesperson</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="salesperson_name"></span>
+
+</div>
+</div>
+</div>
+<span class="salesperson_val" style="display:none"></span>
+<span class="salesperson" style="display:none"></span>
+
+<div class="frow" style="display:none">
+<div class="flabel">Outbound Salesperson</div>
+<div class="field fw">
+<div class="infield">
+<span class="outbound_salesperson_name"></span>
+
+</div>
+</div>
+</div>
+<span class="outbound_salesperson_val" style="display:none"></span>
+
+<div class="frow">
+<div class="flabel"><label for="projected_close">Projected Close</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="projected_close"></span>
+<span class="p_close_date" style="display:none"></span>
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="description">Description</label></div>
+<div class="field fw">
+<div class="infield">
+<span class="message"></span>
+
+<div style="display:block" id="email_cnt">
+
+<a class="pklist" name="emailbody" title="Email Content" rel="type=iframe&src=http://localhost/ig/public_html/core2.php/inbound/emailbody&width=870&height=455&reload=1" >View Email Content</a>
+<br /><br />
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel">&nbsp;</div>
+<div class="field fw">
+<div class="infield">
+<div style="display:inline"><strong>How Customer Found IG:</strong></div>
+<span class="model"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">&nbsp;</div>
+<div class="field fw">
+<div class="infield">
+<div style="display:inline"><strong>Search Term Used:</strong></div>
+<span class="search_term"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">&nbsp;</div>
+<div class="field fw">
+<div class="infield">
+<div style="display:inline"><strong>First Page Visited on IG:</strong></div>
+<span class="url"></span>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="fcolumn1 tEdit">
+<input type="hidden" name="lstatus" value="0" />
+
+
+<div class="frow">
+<div class="flabel">Business Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="business" class="tb" title="Business Name" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+<div class="frow">
+<div class="flabel">Contact Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="fullname" class="tb rtb" title="Full Name" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Job Title</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="job_title" class="tb" title="Job Title" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+
+<div class="frow">
+<div class="flabel">Email Address</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="email" class="tb emailtb" title="Email Address" autocomplete="off"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Website</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="website" class="tb" title="Website" autocomplete="off"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+
+<div class="frow">
+<div class="flabel">Preferred Language</div>
+<div class="field fw">
+<div class="infield">
+<select name="preferred_language" class="tb dd_preferred_language" title="Preferred Language">
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+<div class="frow">
+<div class="flabel">Phone</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="phone" class="tb" title="Phone" autocomplete="off"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+<div class="frow">
+<div class="flabel">Skype</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="skype" class="tb" title="Skype" autocomplete="off"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+<div class="frow">
+<div class="flabel">Contact's Birthday</div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="birthday" class="tb indate" title="Contact's Birthday" autocomplete="off"/>
+</div>
+</div>
+
+<div class="field hw1">
+<div class="infield">
+<input type="button" value="Clear" onclick="$('input[name=birthday]').val('')" autocomplete="off" />
+</div>
+
+</div>
+<div class="df_pick"></div>
+</div>
+<hr />
+
+<!--ADDRESS-->
+
+<div class="frow">
+<div class="flabel"><label for="timezone">Time Zone</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="timezone" title="Time Zone" class="dd_timezones"style="width:260px">
+
+<option value=""></option>
+</select>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="street">Street</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="street" class="tb" title="Street" autocomplete="off" />
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="city">City / State</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="city" class="tb" title="City" autocomplete="off" />
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="state" class="tb" title="State" autocomplete="off" />
+</div>
+</div>
+</div><!--frow-->
+<div class="frow">
+<div class="flabel"><label for="country">Country / Postal</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="country" class="tb" title="Country" autocomplete="off" />
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="zip" class="tb" title="Postal" autocomplete="off" />
+</div>
+</div>
+</div><!--frow-->
+<hr />
+<!--END ADDRESS-->
+
+
+<!--ALTERNATE-->
+
+<div class="frow">
+<div class="flabel">Alternate Contact Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_name" class="tb" title="Alternate Contact Name" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Alternate Contact Phone</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_phone" class="tb" title="Alternate Contact Phone" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Alternate Contact Email</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_email" class="tb emailtb" title="Alternate Contact Email" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+<div class="frow">
+<div class="flabel">Cross Sell</div>
+<div class="field fw">
+<div class="infield">
+<select name="cross_sell" title="Cross Sell" style="width:252px" class="dd_cross_sell">
+<option value="0"></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<hr/>
+<div class="frow">
+<div class="flabel">Twitter</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="twitter" class="tb" title="Twitter" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Facebook</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="facebook" class="tb" title="Facebook" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">LinkedIn</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="linkedin" class="tb" title="LinkedIn" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Quora</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="quora" class="tb" title="Quora" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">News Article</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="news_article" class="tb" title="News Article" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<!--
+<input type="text" name="market_account" style="display:none;"/>
+<div class="frow">
+<div class="flabel">Product</div>
+<div class="field fw">
+<div class="infield">
+Trade Data: <input type="checkbox" name="chk_tradedata" title="Market Account" value="1" />
+Market: <input type="checkbox" name="chk_market" title="Market Account" value="1" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+-->
+<!--END ALTERNATE-->
+
+
+
+<hr/>
+<div class="frow">
+<div class="flabel">Do not call</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="do_not_call" title="Do not call" value="1"/>
+<input type="text" name="do_not_call_val" style="display:none"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+<div class="frow">
+<div class="flabel">Do not email</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="do_not_email" title="Do not email" value="1"/>
+<input type="text" name="do_not_email_val" style="display:none"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Do not expire</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="do_not_expire" title="Do not expire" value="1"/>
+<input type="text" name="do_not_expire_val" style="display:none"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+
+</div>
+
+<div class="fcolumn2 tEdit">
+<!-- <div class="frow">
+<button type="button" class="button" name="convert" style="float:right; margin-bottom: 10px" ><span><b>Convert to Client</b></span></button>
+
+</div>-->
+<div class="frow">
+<div class="flabel">Data Interests</div>
+<div class="field fw">
+<div class="infield">
+<!--
+<select name="data_interest" class="tb" title="Data Interests" autocomplete="off">
+<option value=""></option>
+<option value="7" >US Imports</option>
+<option value="1" >Latin America</option>
+<option value="9" >Russia</option>
+<option value="2" >Europe</option>
+<option value="3" >US Exports</option>
+<option value="4" >China</option>
+<option value="5" >India</option>
+<option value="8" >Canada</option>
+<option value="10" >Pakistan</option>
+<option value="11" >UK</option>
+<option value="12" >Census Data</option>
+<option value="6" >Other</option>
+</select>
+-->
+
+<div>
+<input id="interest_7" type="checkbox" name="data_interest[7]" value="1" />
+<label for="interest_7">US Imports</label>
+</div>
+<div>
+<input id="interest_1" type="checkbox" name="data_interest[1]" value="1" />
+<label for="interest_1">Latin America</label>
+</div>
+<div>
+<input id="interest_9" type="checkbox" name="data_interest[9]" value="1" />
+<label for="interest_9">Russia</label>
+</div>
+<div>
+<input id="interest_2" type="checkbox" name="data_interest[2]" value="1" />
+<label for="interest_2">Europe</label>
+</div>
+<div>
+<input id="interest_3" type="checkbox" name="data_interest[3]" value="1" />
+<label for="interest_3">US Exports</label>
+</div>
+<div>
+<input id="interest_4" type="checkbox" name="data_interest[4]" value="1" />
+<label for="interest_4">China</label>
+</div>
+<div>
+<input id="interest_5" type="checkbox" name="data_interest[5]" value="1" />
+<label for="interest_5">India</label>
+</div>
+<div>
+<input id="interest_8" type="checkbox" name="data_interest[8]" value="1" />
+<label for="interest_8">Canada</label>
+</div>
+<div>
+<input id="interest_10" type="checkbox" name="data_interest[10]" value="1" />
+<label for="interest_10">Pakistan</label>
+</div>
+<div>
+<input id="interest_11" type="checkbox" name="data_interest[11]" value="1" />
+<label for="interest_11">UK</label>
+</div>
+<div>
+<input id="interest_12" type="checkbox" name="data_interest[12]" value="1" />
+<label for="interest_12">Census Data</label>
+</div>
+<div>
+<input id="interest_6" type="checkbox" name="data_interest[6]" value="1" />
+<label for="interest_6">Other</label>
+</div>
+
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Competitor</div>
+<div class="field fw">
+<div class="infield">
+<select name="competitor" class="tb dd_competitor" title="Competitor" autocomplete="off">
+<option value=""></option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow" id="comp_status">
+<div class="flabel">Status with Competitor</div>
+<div class="field fw">
+<div class="infield">
+<select name="comp_status" class="tb dd_competitor_status" title="Status with Competitor" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow" id="exp_date">
+<div class="flabel">Competitor Exp. Date</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="exp_date" class="tb indate" title="Competitor Exp. Date" autocomplete="off"/>
+
+</div>
+</div>
+<div class="field hw1">
+<div class="infield">
+<input type="button" value="Clear" onclick="$('input[name=exp_date]').val('')" />
+</div>
+
+</div>
+<div class="df_pick"></div>
+
+</div>
+
+<div class="frow" id="stage">
+<div class="flabel">Stage</div>
+<div class="field fw">
+<div class="infield">
+<select name="stage" class="tb rtb dd_stage" title="Stage" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow" id="reason_lost">
+<div class="flabel">Reason Lost</div>
+<div class="field fw">
+<div class="infield">
+<select name="reason_lost" class="tb dd_reason_lost" title="Reason Lost" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div id="email_trickle">
+<div class="frow">
+<div class="flabel">E-mail Trickle</div>
+<div class="field fw">
+<div class="infield">
+<select name="email_trickle" title="E-mail Trickle" class="tb dd_email_trickle">
+<option value="0">None</option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Lead Source</div>
+<div class="">
+<div class="">
+<select name="lead_source" class="tb rtb chosen dd_lead_source" title="Lead Source" style="width: 260px;">
+<option value=""></option>
+</select>
+<input type="text" name="lead_source" class="" style="display:none"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">List</div>
+<div class="field fw">
+<div class="infield">
+<select name="user_list" class="tb rtb dd_user_list" title="List" autocomplete="off">
+<option value="0">None</option>
+<option value="add_new_list">Add New</option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<hr />
+
+<!-- BUSINESS TYPE, CONSIGNEES, SHIPPERS, PRODUCTS -->
+
+<div class="frow">
+<div class="flabel"><label for="btype">Business Type</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="btype" class="tb dd_business_type" title="<label for="btype">Business Type</label>" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="consignees">Consignees</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="consignees" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="shippers">Shippers</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="shippers" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="products">Products</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="products" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+
+<hr/>
+
+<div class="frow">
+<div class="flabel">Created by</div>
+<div class="field fw">
+<div class="infield">
+<select name="creator" class="tb dd_active_users" title="Created by" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+<div class="frow">
+<div class="flabel">Sales Developer</div>
+<div class="field fw">
+<div class="infield">
+<select name="created_by" class="tb dd_salesdeveloper" title="Sales Developer" autocomplete="off">
+<option value="0"></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<!-- DISPLAY ONLY IF ADMIN, SALES MANAGER, CUSTOMER SERVICE MANAGER-->
+<div class="frow">
+<div class="flabel">Salesperson</div>
+<div class="field fw">
+<div class="infield">
+<select name="salesperson" class="tb dd_salesperson" title="Salesperson" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Outbound Salesperson</div>
+<div class="field fw">
+<div class="infield">
+<select name="outbound_salesperson" class="tb dd_outbound_salesperson" title="Outbound Salesperson" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Projected Close</div>
+<div class="field hw2">
+<div class="infield">
+
+<select name="prjClose_month" class="tb" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+
+
+<div class="frow">
+<div class="flabel">Description</div>
+<div class="field fw">
+<div class="infield">
+<textarea name="message" class="tb" title="Description" rows="10" autocomplete="off"></textarea>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Keep Unread</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="keep_unread" title="Keep Unread" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+
+
+<!--<div class="frow" id="unreadcontainer">
+<div class="flabel">
+<input type="checkbox" id="unread" name="keep_unread" value="0" class="tb" title="Keep Unread" />
+<label for="unread">Keep Unread</label>
+</div>
+<div class="field fw">
+<div class="infield">
+</div>
+</div>
+<div class="df_pick"></div>
+</div>-->
+
+
+</div>
+<div style="clear:both"></div>
+
+</div>
+<div class="response content"></div>
+</form>
+</div>
+
+<div class="fpane">
+<div id="email_alerts">
+
+<form>
+<input type="text" name="item" style="display:none"/>
+<input type="text" name="action" style="display:none"/>
+<input type="text" name="alert_id" style="display:none"/>
+<div class="fcolumn1" style="padding:10px;">
+
+<div class="frow">
+<div class="flabel">Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="name" class="tb rtb" title="Name"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Search Type</div>
+<div class="field fw">
+<div class="infield">
+<select class="tb" name="search_type" class="dd_search_type">
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Keyword</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="keyword" class="tb rtb" title="Keyword"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Frequency</div>
+<div class="field fw">
+<div class="infield">
+<select class="tb" name="frequency">
+<option value="2">Standard</option>
+<option value="1">Slow</option>
+<option value="0">Inactive</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">From/To</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" class="tb indate rtb" name="query_from" title="From" />
+</div>
+</div>
+
+<div class="field hw2">
+<div class="infield">
+<input type="text" class="tb indate rtb" name="query_to" title="To" />
+</div>
+</div>
+
+
+</div>
+
+<div class="frow">
+<div class="flabel">Template</div>
+<div class="field">
+<div class="infield">
+<span onclick="mailto_3($('.email').text(), 0); eAlert_default();" class="template_name" style="color:blue; cursor:pointer">Default Template</span>
+<input type="text" name="tid" class="rtb" style="display:none" title="Template" value="39"/>
+</div>
+</div>
+</div>
+
+<div style="float:right; margin-right:80px">
+<button type="button" class="button" name="save"><span><b>Save</b></span></button>
+<button type="button" class="button" name="cancel"><span><b>Cancel</b></span></button>
+</div>
+
+</div>
+</form>
+
+<div style="clear:both"></div>
+
+<div>
+<table id="emailGrid"></table>
+<div class="response"></div>
+<div style="clear:both"></div>
+</div>
+</div> </div>
+
+<div class="fpane" style="display: none">
+<table id="conversation"></table>
+</div>
+
+<div class="fpane" style="display: none">
+<table id="lead_history"></table>
+</div>
+
+<div class="fpane" style="display:none">
+<table id="lead_duplicate"></table>
+</div>
+</div>
+<!--ACTIVITIES-->
+<div class="dpane" style="display:block">
+<!--ACTIVITIES-->
+<div id="activities">
+<h2 id="header2"><span class="username" id="username"></span> - Activities</h2>
+
+<div id="AHeader" class="panel" >
+<input type="text" name="can_edit" style="display: none" value="1"/>
+<form id="df_editor_activity">
+<div class="fields">
+<input type="text" name="action" value="save_activity" style="display:none;" />
+<input type="text" name="clientid" style="display:none;" />
+<input type="text" name="aid" style="display:none;" />
+<input type="hidden" name="method" value="post_activities" />
+<input type="hidden" name="module" value="leads" />
+<input type="text" name="category" style="display:none" />
+<input type="text" name="is_at" style="display:none" />
+<div class="fpane" style="display: block;">
+<div class="fcolumn1" style="padding:10px; width: 45%">
+<div class="frow">
+<div class="flabel">Activity Date</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="tdate" class="tb indate" title="Activity Date" autocomplete="off"/>
+</div>
+</div>
+
+<div class="field hw1">
+<div class="infield">
+<input type="button" value="Clear" onclick="$('input[name=tdate]').val('')" />
+</div>
+
+</div>
+</div>
+
+<div class="frow event">
+<div class="flabel">Activity Time</div>
+<div class="field fw">
+<div class="infield">
+<select name="hours" class="dd_hours" autocomplete="off">
+</select>
+<select name="minutes" class="dd_minutes" autocomplete="off">
+</select>
+<!-- <select name="ampm" autocomplete="off">
+<option value="AM">AM</option>
+<option value="PM">PM</option>
+</select>-->
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Email Reminder</div>
+<div class="field fw">
+<div class="infield">
+<div id="event_reminder">
+<input type="text" style="width: 40px" name="rem_num"/>
+<select name="rem_days">
+<option value="1">minutes</option>
+<option value="2">hours</option>
+<option value="3">days</option>
+<option value="4">weeks</option>
+</select>
+
+<span style="margin-left:10px">Send SMS?</span>
+<input type="checkbox" name="send_sms"/>
+</div>
+</div>
+</div>
+</div>
+<div class="frow event">
+<div class="flabel">Reminder Alert</div>
+<div class="field fw">
+<div class="infield">
+<span class="reminder_time"></span>
+</div>
+</div>
+</div>
+
+<div class="frow event">
+<div class="flabel">Time Zone</div>
+<div class="field fw">
+<div class="infield">
+<select class="tb dd_timezones_az_selected" name="timezone" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<!--TASK-->
+<div class="frow task">
+<div class="flabel">Priority</div>
+<div class="field fw">
+<div class="infield">
+<input id="pHigh" type="radio" name="priority" value="3" />
+<label for="pHigh">High</label>
+<input id="sMedium" type="radio" name="priority" value="2" style="margin-left: 20px" checked/>
+<label for="sMedium">Medium</label>
+<input id="pLow" type="radio" name="priority" value="1" style="margin-left: 20px" />
+<label for="pLow">Low</label>
+</div>
+</div>
+</div>
+<!--END TASK-->
+
+<div class="frow">
+<div class="flabel">Created By</div>
+<div class="field fw">
+<div class="infield">
+<select name="created_by_act" class="tb dd_active_users_self_selected" autocomplete="off">
+<option value="0"></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Assigned To</div>
+<div class="field fw">
+<div class="infield">
+<select name="userid" class="tb dd_active_users_self_selected" autocomplete="off">
+<option value="0"></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">E-mail Assigned Employee</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="email_assigned" title="E-mail Assigned Employee"/>
+<input type="hidden" name="current_logged" value="115" />
+</div>
+</div>
+</div>
+
+
+
+<!-- <div class="frow">
+<div class="flabel">Lead</div>
+<div class="field fw">
+<div class="infield">
+<select name="leadid" class="tb" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>-->
+</div>
+<div class="fcolumn2" style="padding:10px; width: 45%">
+<div class="frow">
+<div class="flabel">Type</div>
+<div class="field fw">
+<div class="infield">
+<select name="atype" class="tb dd_activity_type" autocomplete="off">
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Reason</div>
+<div class="field fw">
+<div class="infield">
+<select name="reason" class="tb dd_activity_reason_not_alphabetical" autocomplete="off">
+</select>
+</div>
+</div>
+</div>
+
+
+<!-- <div class="frow">
+<div class="flabel">Description</div>
+<div class="field fw">
+<div class="infield">
+<textarea name="notes" autocomplete="off"></textarea>
+</div>
+</div>
+
+</div> -->
+
+<div class="frow">
+<div class="flabel">Status</div>
+<div class="field fw">
+<div class="infield">
+<input id="sSched" type="radio" name="act_status" value="0"/>
+<label for="sSched">Scheduled</label>
+<input id="sComp" type="radio" name="act_status" value="1" style="margin-left: 15px;" checked/>
+<label for="sComp">Complete</label>
+<input type="text" name="status" value="0" style="display: none"/>
+</div>
+</div>
+</div>
+
+<div class="frow" id="outcome">
+<div class="flabel">Outcome</div>
+<div class="field fw" style="width:30%">
+<div class="infield">
+<select name="outcome" class="tb dd_activity_outcome" autocomplete="off" title="Outcome">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<!--TRANSFER PAID-->
+<div class="frow" id="transfer_paid">
+<div class="flabel">Transfer Paid</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" value="1" name="transfer_paid"/>
+<input type="input" name="transfer_paid_val" style="display:none"/>
+</div>
+</div>
+</div>
+
+<div class="frow" id="paid_date">
+<div class="flabel">Paid Date</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="paid_date" class="tb indate" style="width: 100px"/>
+<input type="button" value="Clear" onclick="$('input[name=paid_date]').val('')" id="clear_paid_date"/>
+</div>
+</div>
+</div>
+<!--END TRANSFER PAID-->
+
+
+</div>
+
+<hr/>
+
+<div class="frow">
+<div class="field fw" style="width: 100%">
+<div class="infield">
+<span class="email_frame" style="width: 100%; height: 100%"></span>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel" style="width: 15%">Description</div>
+<div class="field fw" style="width:85%">
+<div class="infield">
+<textarea name="notes" autocomplete="off" rows="10"></textarea>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class="frow" style="margin-top:20px">
+<div class="flabel">&nbsp;</div>
+<div class="field fw" style="text-align:right">
+<button type="submit" class="button" name="actsave"><span><b>Save</b></span></button>
+<button type="button" class="button" name="actcancel"><span><b>Cancel</b></span></button></div>
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+<div class="response content"></div>
+</form>
+
+
+</div>
+
+<div id="AList" class="panel panes" style="display:block">
+
+
+<div class="fpane" style="display: block;">
+<form id="quicklog" style="margin-bottom: 10px;">
+<input type="text" name="action" value="quicklog" style="display:none;" />
+<input type="text" name="clientid" style="display:none;" />
+
+<input type="hidden" name="method" value="/post_activities" />
+<input type="hidden" name="module" value="leads" />
+
+<input type="hidden" name="quicklog" />
+
+<button type="button" class="button quickform" name="Log Call" id="logcall"><span><b>Log Call</b></span></button>
+<button type="button" class="button quickform" name="Scheduled Demo"><span><b>Scheduled Demo</b></span></button>
+<button type="button" class="button" name="Email" id="mailto" onclick="mailto_2()"><span><b>Email</b></span></button>
+<button type="button" class="button quicklog" name="LVM"><span><b>LVM</b></span></button>
+<button type="button" class="button quicklog" name="No Answer"><span><b>No Answer</b></span></button>
+<button type="button" class="button quicklog" name="Bad Number"><span><b>Bad Number</b></span></button>
+
+</form>
+<table id="activitiesFlex"></table>
+<div style="clear:both"></div>
+</div>
+</div>
+</div>
+
+
+<!--END ACTIVITIES--> </div>
+
+
+<!--END ACTIVITIES-->
+
+</div><!--content-->
+</div><!--header-->
+
+<div id="List" class="panel" style="display:block">
+
+<div class="content">
+
+<div class="dpane">
+<div>
+<select id="cview" class="cview">
+<optgroup label="All Leads "><option value="15" selected>New Leads</option><option value="2" >No Projection</option><option value="3" >Projected This Month</option><option value="4" >Projected Next Month </option><option value="5" >Leads with Upcoming Events </option><option value="75" >Closed Won</option><option value="1" selected>All Leads</option><option value="69" >Leads with Completed Demos</option><option value="42" >All Unqualified Leads</option><option value="76" >Maybe Later</option><option value="84" >Expiring Leads</option><option value="83" >Open Season</option><option value="85" >Prospect</option><option value="87" >NNS (No Number Supplied)</option><option value="88" >CNL (Called but no luck)</option><option value="89" >NCM (No call made)</option></optgroup> </select>
+<!-- <button type="button" class="button" id="bview" style="margin: 0 0 0 3px"><span><b>Go!</b></span></button>-->
+
+</div>
+<br />
+<div id="leadsGrid"><table class="listFlex"></table></div>
+</div>
+</div>
+
+</div>
+
+<div id="proof" style="display:none; text-align: center; margin-top: 20px; font-size: 12px;" title="Proof of Payment">
+Have you received proof of the payment yet? <div style="margin-top: 20px">
+<input type="button" value="Yes" name="yes" id="prfYes"/>
+<input type="button" value="No" name="no" id="prfNo"/>
+</div>
+
+</div>
+
+
+<div class="fpane">
+<div id="convert" title="Convert to Client" style="display: block; overflow: auto;">
+<div id="newHeader" class="panel" style="display: block">
+<div class="content">
+<h2>Convert to Client</h2>
+
+
+<form class="form">
+<div class="fields">
+<div class="dpane headpane">
+<div class="fpane" style="display: block;">
+<input type="text" name="action" value="savenew" style="display:none;" />
+<input type="text" name="item" style="display:none;" />
+<input type="hidden" name="method" value="/convert" />
+<input type="hidden" name="module" value="leads" />
+<input type="text" name="advance" style="display:none;" />
+<input type="text" name="mduser" style="display:none;" />
+<input type="text" name="chkid" style="display:none;" />
+<input type="text" name="clientid" style="display:none;" />
+<input type="text" name="lead_source" style="display:none;" />
+<input type="text" name="stage" style="display:none;" />
+<input type="text" name="data_interest" style="display:none;" />
+<input type="text" name="competitor" style="display:none;" />
+<input type="text" name="comp_status" style="display:none;" />
+<input type="text" name="exp_date" style="display:none;" />
+<input type="text" name="reason_lost" style="display:none;" />
+<input type="text" name="preferred_language" style="display:none;" />
+<input type="text" name="version" value="iscan4l" style="display:none;" />
+<input type="hidden" name="leadid" />
+<div class="fcolumn1 ">
+<div class="frow">
+<div class="flabel"><label for="firstname">First Name</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="firstname" class="tb rtb" title="First Name" autocomplete="off"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="lastname">Last Name</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="lastname" class="tb rtb" title="Last Name" autocomplete="off"/>
+
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="business">Business Name</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="business" class="tb rtb" title="Business Name" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="website">Website</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="website" class="tb" title="Website" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="phone">Phone</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="phone" class="tb rtb" title="Phone" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="skype">Skype</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="skype" class="tb" title="Skype" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="birthday">Contact's Birthday</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="birthday" class="tb indate" title="Contact's Birthday" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<hr />
+
+
+
+<div class="frow">
+<div class="flabel"><label for="email">Email Address</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="email" class="tb rtb" title="Email Address" autocomplete="off"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="username">Username</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="username" class="tb rtb" title="Username" autocomplete="off"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="password">Password</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="npassword" class="tb rtb" title="Password" autocomplete="off">
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="suspendon">Auto-Suspend Date</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="suspendon" class="tb indate" title="Auto-Suspend Date" autocomplete="off">
+</div>
+</div>
+<div class="field hw1">
+<div class="infield">
+<input type="button" name="clearsuspend" onclick="$('input[name=suspendon]').val('')" value="Clear"/>
+</div>
+</div>
+</div><!--frow-->
+
+<div class="frow">
+<div class="flabel">Lead Source<i class="star">*</i></div>
+<div class="">
+<div class="">
+<select name="lead_source" class="tb rtb chosen dd_lead_source" title="Lead Source" style="width: 210px;">
+<option value=""></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">List</div>
+<div class="field fw">
+<div class="infield">
+<select name="user_list" class="tb rtb dd_user_list" title="List" autocomplete="off">
+<option value="0">None</option>
+<option value="add_new_list">Add New</option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="salesperson">Salesperson</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+
+<select name="salesperson" class="tb rtb dd_salesperson" title="Salesperson" autocomplete="off" >
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Outbound Salesperson</div>
+<div class="field fw">
+<div class="infield">
+<select name="outbound_salesperson" class="tb dd_outbound_salesperson" title="Outbound Salesperson" autocomplete="off" >
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="manager">Account Manager</label></div>
+<div class="field fw">
+<div class="infield">
+
+<select name="manager" class="tb dd_manager" title="Account Manager" autocomplete="off" >
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Sales Developer</div>
+<div class="field fw">
+<div class="infield">
+
+<select name="sales_dev" class="tb dd_salesdeveloper" title="Sales Developer" autocomplete="off" >
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="training">Training Stage</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="training" class="tb dd_training_stage">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="utype">Account Type</label><i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+
+<select name="utype" class="tb rtb dd_utype_sorted" title="Account Type" autocomplete="off">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Payment Schedule</div>
+<div class="field fw">
+<div class="infield">
+<select name="payschedule" title="Payment Schedule" autocomplete="off" onchange="$('#newContract select[name=paysched]').val($(this).val()); prepaid(this,'#newContract');">
+<option value="0">Recurring</option>
+<option value="1">Up Front</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow" id="paidthrough" style="display: none;">
+<div class="flabel">Paid Through</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="paidthrough" class="tb indate" title="Paid Through" autocomplete="off" style="width: 100px"/>
+<input type="button" name="" onclick="$('input[name=paidthrough]').val('')" value="Clear"/>
+</div>
+</div>
+</div>
+
+<div class="frow addon_div" style="display:block;" >
+<div class="flabel"><label for="date_range">Date Range</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="days" title="Date Range">
+<!--<option value="45">1.5</option>
+<option value="90">3</option>
+<option value="180">6</option>
+<option value="360">12</option>
+<option value="720">24</option>
+<option value="1080">36</option>
+<option value="1440">48</option>-->
+
+
+<option value="0" selected="selected">Default</option>
+<option value="90" class="forlimited">3</option>
+<option value="180" class="forlimited">6</option>
+<option value="365" class="forlimited">12</option>
+<option value="730">24</option>
+<option value="1095">36</option>
+<option value="1460">48</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="terms">Terms</label></div>
+<div class="field hw2">
+<div class="infield">
+<select name="terms" title="Terms" class="tb" autocomplete="off">
+<option value='1' style='background-color: #CCCCCC;' >1 Month</option><option value='2' style='background-color: #FFFFFF;' >2 Months</option><option value='3' style='background-color: #CCCCCC;' >3 Months</option><option value='4' style='background-color: #FFFFFF;' >4 Months</option><option value='5' style='background-color: #FFFFFF;' >5 Months</option><option value='6' style='background-color: #CCCCCC;' >6 Months</option><option value='7' style='background-color: #FFFFFF;' >7 Months</option><option value='8' style='background-color: #FFFFFF;' >8 Months</option><option value='9' style='background-color: #FFFFFF;' >9 Months</option><option value='10' style='background-color: #FFFFFF;' >10 Months</option><option value='11' style='background-color: #FFFFFF;' >11 Months</option><option value='12' selected = "selected" style='background-color: #CCCCCC;' >12 Months</option><option value='13' style='background-color: #FFFFFF;' >13 Months</option><option value='14' style='background-color: #FFFFFF;' >14 Months</option><option value='15' style='background-color: #FFFFFF;' >15 Months</option><option value='16' style='background-color: #FFFFFF;' >16 Months</option><option value='17' style='background-color: #FFFFFF;' >17 Months</option><option value='18' style='background-color: #FFFFFF;' >18 Months</option><option value='19' style='background-color: #FFFFFF;' >19 Months</option><option value='20' style='background-color: #FFFFFF;' >20 Months</option><option value='21' style='background-color: #FFFFFF;' >21 Months</option><option value='22' style='background-color: #FFFFFF;' >22 Months</option><option value='23' style='background-color: #FFFFFF;' >23 Months</option><option value='24' style='background-color: #CCCCCC;' >24 Months</option><option value='25' style='background-color: #FFFFFF;' >25 Months</option><option value='26' style='background-color: #FFFFFF;' >26 Months</option><option value='27' style='background-color: #FFFFFF;' >27 Months</option><option value='28' style='background-color: #FFFFFF;' >28 Months</option><option value='29' style='background-color: #FFFFFF;' >29 Months</option><option value='30' style='background-color: #FFFFFF;' >30 Months</option><option value='31' style='background-color: #FFFFFF;' >31 Months</option><option value='32' style='background-color: #FFFFFF;' >32 Months</option><option value='33' style='background-color: #FFFFFF;' >33 Months</option><option value='34' style='background-color: #FFFFFF;' >34 Months</option><option value='35' style='background-color: #FFFFFF;' >35 Months</option><option value='36' style='background-color: #FFFFFF;' >36 Months</option> </select>
+</div>
+</div>
+
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="amount">Amount</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="amount" class="tb" title="Amount" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="promocode">Promo Code</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="promocode" class="tb" title="Promo Code" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="paytype">Payment Method</label><i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+<select name="paytype" class="tb rtb" title="Payment Method" autocomplete="off">
+<option value=""></option>
+<option value="1">Check</option>
+<option value="2">Credit Card</option>
+<option value="3">Paypal</option>
+<option value="4">Western Union</option>
+<option value="5">Wire</option>
+<option value="6">Courtesy Account</option>
+<option value="7">E-Check</option>
+<option value="8">Child</option>
+</select>
+<a href="#formCC" name="cc_a">&nbsp;</a>
+<a href="#formAdvance" name="ad_a">&nbsp;</a>
+</div>
+</div>
+
+</div>
+
+<div class="frow" id="courtesy_reason">
+<div class="flabel">Courtesy Reason</div>
+<div class="field fw">
+<div class="infield">
+<select name="courtesy_reason" title="Courtesy Reason" class="tb dd_courtesy_reason" id="courtesy_reason_select">
+<option value=""></option>
+</select>
+</div>
+</div>
+</div>
+
+
+
+
+<hr />
+
+<div class="frow">
+<div class="flabel">Notes</div>
+<div class="field fw">
+<div class="infield">
+<textarea name="usernotes" rows="4"></textarea>
+</div>
+</div>
+</div>
+<hr />
+
+<div class="frow">
+<div class="flabel">Do not call</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="do_not_call" title="Do not call" value="1"/>
+
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Do not email</div>
+<div class="field fw">
+<div class="infield">
+<input type="checkbox" name="do_not_email" title="Do not email" value="1"/>
+<input type="text" name="do_not_email_val" style="display:none"/>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+</div>
+
+
+
+
+<div class="fcolumn2 ">
+
+
+
+
+<div class="frow">
+<div class="flabel"><label for="btype">Business Type</label></div>
+<div class="field fw">
+<div class="infield">
+<select autocomplete="off" name="btype" class="tb business_type dd_business_type">
+<option value=""></option>
+</select>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="consignees">Consignees</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="consignees" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="shippers">Shippers</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="shippers" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="products">Products</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="products" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="usernotes">Comments</label></div>
+<div class="field fw">
+<div class="infield">
+<textarea name="comments" class="tb" rows="4"></textarea>
+</div>
+</div>
+
+</div>
+
+<hr />
+
+<!--ADDRESS-->
+
+<div class="frow">
+<div class="flabel"><label for="timezone">Time Zone</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="timezone" title="Time Zone" class="dd_timezones" style="width:220px">
+
+<option value=""></option>
+
+
+</select>
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="street">Street</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="cstreet" class="tb" title="Street" autocomplete="off" />
+</div>
+</div>
+
+</div>
+<div class="frow">
+<div class="flabel"><label for="city">City / State</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="ccity" class="tb" title="City" autocomplete="off" />
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="cstate" class="tb" title="State" autocomplete="off" />
+</div>
+</div>
+</div><!--frow-->
+<div class="frow">
+<div class="flabel"><label for="country">Country / Postal</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="ccountry" class="tb" title="Country" autocomplete="off" />
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="input" name="czip" class="tb" title="Postal" autocomplete="off" />
+</div>
+</div>
+</div><!--frow-->
+<hr />
+<!--END ADDRESS-->
+
+
+<!--ALTERNATE-->
+
+<div class="frow">
+<div class="flabel">Alternate Contact Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_name" class="tb" title="Alternate Contact Name" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Alternate Contact Phone</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_phone" class="tb" title="Alternate Contact Phone" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Alternate Contact Phone 2</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_phone_2" class="tb" title="Alternate Contact Phone 2" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Alternate Contact Email</div>
+<div class="field fw">
+<div class="infield">
+<input type="input" name="alt_email" class="tb" title="Alternate Contact Email" autocomplete="off" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+<!-- end alternates -->
+<hr />
+
+
+<div class="frow">
+<div class="flabel"><label for="allowcardedit">Allow Credit Card Update</label></div>
+<div class="field pk">
+<div class="infield">
+<input type="checkbox" name="allowcardedit" title="Allow Credit Card Update" value="1" />
+</div>
+</div>
+
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="allowvmap">Allow Visual Map</label></div>
+<div class="field pk">
+<div class="infield">
+<input type="checkbox" name="allowvmap" title="Allow Visual Map" value="1" />
+</div>
+</div>
+
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="noexport">Disable Export</label></div>
+<div class="field pk">
+<div class="infield">
+<input type="checkbox" name="noexport" title="Disable Export" value="1" />
+</div>
+</div>
+
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="allowalerts">Allow Unlimited Alerts</label></div>
+<div class="field pk">
+<div class="infield">
+<input type="checkbox" name="allowalerts" title="Allow Unlimited Alerts" value="1" />
+</div>
+</div>
+
+</div>
+
+
+
+<div class="frow">
+<div class="flabel">Cross Sell</div>
+<div class="field fw">
+<div class="infield">
+<select name="cross_sell" title="Cross Sell" class="dd_cross_sell" style="width:252px">
+<option value="0"></option>
+</select>
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+<div class="frow">
+<div class="flabel">Product</div>
+<div class="field fw">
+<div class="infield">
+Trade Data: <input type="checkbox" name="chk_tradedata" title="Market Account" value="1" />
+Market: <input type="checkbox" name="chk_market" title="Market Account" value="1" />
+</div>
+</div>
+<div class="df_pick"></div>
+</div>
+
+
+<div class="frow">
+<div class="flabel">Available Countries</div>
+<div class="field fw">
+<div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries1" >Argentina:</label></div> <input id="chk_available_countries1" type="checkbox" name="chk_available_countries[]" title="Argentina" value="1" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries2" >Chile:</label></div> <input id="chk_available_countries2" type="checkbox" name="chk_available_countries[]" title="Chile" value="2" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries3" >Ecuador:</label></div> <input id="chk_available_countries3" type="checkbox" name="chk_available_countries[]" title="Ecuador" value="3" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries5" >Paraguay:</label></div> <input id="chk_available_countries5" type="checkbox" name="chk_available_countries[]" title="Paraguay" value="5" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries6" >Panama:</label></div> <input id="chk_available_countries6" type="checkbox" name="chk_available_countries[]" title="Panama" value="6" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries7" >Peru:</label></div> <input id="chk_available_countries7" type="checkbox" name="chk_available_countries[]" title="Peru" value="7" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries8" >USA:</label></div> <input id="chk_available_countries8" type="checkbox" name="chk_available_countries[]" title="USA" value="8" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries9" >Venezuela:</label></div> <input id="chk_available_countries9" type="checkbox" name="chk_available_countries[]" title="Venezuela" value="9" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries10" >Colombia:</label></div> <input id="chk_available_countries10" type="checkbox" name="chk_available_countries[]" title="Colombia" value="10" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries11" >Uruguay:</label></div> <input id="chk_available_countries11" type="checkbox" name="chk_available_countries[]" title="Uruguay" value="11" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries12" >Costa Rica:</label></div> <input id="chk_available_countries12" type="checkbox" name="chk_available_countries[]" title="Costa Rica" value="12" style="float:right; padding-right:30px;" /></div><div class="infield" style="float:left; width:80px; "><div style="float:left; width:50px;padding-top:5px;"><label for="chk_available_countries13" >India:</label></div> <input id="chk_available_countries13" type="checkbox" name="chk_available_countries[]" title="India" value="13" style="float:right; padding-right:30px;" /></div> </div>
+<div class="df_pick"></div>
+</div>
+
+
+</div>
+
+<div style="clear:both"></div>
+
+
+</div>
+</div>
+<div class="dpane" style="display:none;" id="formPayments">
+<div class="fpane" style="display:block;">
+<div id="formCC" style="display:none;" >
+<h2>Credit Card Details</h2>
+<div class="frow">
+<div class="flabel"><label for="firstname">First Name</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="cfirstname" class="tb xtb" title="First Name" autocomplete="off" />
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="lastname">Last Name</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="clastname" class="tb xtb" title="Last Name" autocomplete="off"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel"><label for="cardno">Card No</label><i class="star">*</i></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="cardno" class="tb xtb" title="Card No" autocomplete="off"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="ctype">Card Type</label></div>
+<div class="field fw">
+<div class="infield">
+<select name="ctype">
+<option value="Visa">Visa</option>
+<option value="Mastercard">Mastercard</option>
+<option value="American E">American Express</option>
+<option value="Discover">Discover</option>
+</select>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel"><label for="expiry">Expiry Date</label><i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="expiry" class="tb xtb" title="Expiry Date" autocomplete="off"/>
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+(MMYY)
+</div>
+</div>
+</div>
+
+
+<div class="frow">
+<div class="flabel"><label for="street">Street</label></div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="street" class="tb" title="Street" autocomplete="off">
+</div>
+</div>
+</div><!--frow-->
+<div class="frow">
+<div class="flabel"><label for="city">City / State</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="city" class="tb" title="City" autocomplete="off">
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="state" class="tb" title="State/Province" autocomplete="off">
+</div>
+</div>
+</div><!--frow-->
+<div class="frow">
+<div class="flabel"><label for="country">Country / Postal</label></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="country" class="tb" title="Country" autocomplete="off">
+</div>
+</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="zip" class="tb xtb" title="Postal" autocomplete="off">
+</div>
+</div>
+</div><!--frow-->
+</div>
+
+<div id="formAdvance" style="display:none;">
+<h2>Payment in Advance Details</h2>
+<div class="frow">
+<div class="flabel">Amount<i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="chkamt" class="tb xtb" title="Amount" />
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Effective Date<i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="chkdate" class="tb xtb indate" title="Effective Date"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">End Date<i class="star">*</i></div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="chkend" class="tb xtb indate" title="End Date"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Notes</div>
+<div class="field fw">
+<div class="infield">
+<textarea name="chknotes" class="tb"></textarea>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Upload Proof</div>
+<div class="field fw">
+<div class="infield">
+<button type="button" class="button" id="uploadproof"><span><b>Upload Proof of Payment</b></span></button>
+<span class="uploadproofresponse"></span>
+</div>
+</div>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+
+</div>
+<div class="df_row">&nbsp;</div>
+<div class="df_row">
+<div class="df_field" style="width:505px; text-align:right">
+<!-- <button type="submit" class="button" ><span><b>Submit</b></span></button>-->
+<button type="submit" name="submit" class="button"><span><b>Submit</b></span></button>
+</div>
+</div>
+
+</div>
+<div class="response content"></div>
+</form>
+</div>
+</div>
+
+<div id="newContract" style="display:none;">
+<div class="content">
+<h2>Generate Contract</h2>
+<div class="dpane">
+<div class="fpane" style="display:block">
+<div>
+<div class="frow">
+<div class="flabel">Start Date</div>
+<div class="field hw2">
+<div class="infield">
+<input name="startdate" class="tb indate" title="Start Date"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Terms</div>
+<div class="field hw2">
+<div class="infield">
+<select name="terms" class="tb">
+<option value='1' style='background-color: #CCCCCC;'>1 Month</option><option value='2' style='background-color: #FFFFFF;'>2 Months</option><option value='3' style='background-color: #CCCCCC;'>3 Months</option><option value='4' style='background-color: #FFFFFF;'>4 Months</option><option value='5' style='background-color: #FFFFFF;'>5 Months</option><option value='6' style='background-color: #CCCCCC;'>6 Months</option><option value='7' style='background-color: #FFFFFF;'>7 Months</option><option value='8' style='background-color: #FFFFFF;'>8 Months</option><option value='9' style='background-color: #FFFFFF;'>9 Months</option><option value='10' style='background-color: #FFFFFF;'>10 Months</option><option value='11' style='background-color: #FFFFFF;'>11 Months</option><option value='12' selected = "selected" style='background-color: #CCCCCC;'>12 Months</option><option value='13' style='background-color: #FFFFFF;'>13 Months</option><option value='14' style='background-color: #FFFFFF;'>14 Months</option><option value='15' style='background-color: #FFFFFF;'>15 Months</option><option value='16' style='background-color: #FFFFFF;'>16 Months</option><option value='17' style='background-color: #FFFFFF;'>17 Months</option><option value='18' style='background-color: #FFFFFF;'>18 Months</option><option value='19' style='background-color: #FFFFFF;'>19 Months</option><option value='20' style='background-color: #FFFFFF;'>20 Months</option><option value='21' style='background-color: #FFFFFF;'>21 Months</option><option value='22' style='background-color: #FFFFFF;'>22 Months</option><option value='23' style='background-color: #FFFFFF;'>23 Months</option><option value='24' style='background-color: #CCCCCC;'>24 Months</option><option value='25' style='background-color: #FFFFFF;'>25 Months</option><option value='26' style='background-color: #FFFFFF;'>26 Months</option><option value='27' style='background-color: #FFFFFF;'>27 Months</option><option value='28' style='background-color: #FFFFFF;'>28 Months</option><option value='29' style='background-color: #FFFFFF;'>29 Months</option><option value='30' style='background-color: #FFFFFF;'>30 Months</option><option value='31' style='background-color: #FFFFFF;'>31 Months</option><option value='32' style='background-color: #FFFFFF;'>32 Months</option><option value='33' style='background-color: #FFFFFF;'>33 Months</option><option value='34' style='background-color: #FFFFFF;'>34 Months</option><option value='35' style='background-color: #FFFFFF;'>35 Months</option><option value='36' style='background-color: #FFFFFF;'>36 Months</option> </select>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Custom Amount</div>
+<div class="field hw1">
+<div class="infield">
+<input name="amount" class="tb" title="Custom Amount"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Contract Type:</div>
+<div class="field fw">
+<div class="infield">
+<select name="paysched" title="Contract Type" autocomplete="off" onchange="prepaid(this,'#newContract')">
+<option value="0">Recurring</option>
+<option value="1">Pre-Paid</option>
+</select>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Select File type:</div>
+<div class="field fw">
+<div class="infield">
+<div class="recurring">
+<input type="radio" name="filetype" value="pdf" />&nbsp;PDF&nbsp;&nbsp;<button type="button" class="button" title="PDF" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="doc" />&nbsp;DOC&nbsp;<button type="button" class="button" title="DOC" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="esign" checked="checked" id="esign"/>&nbsp;EchoSign&nbsp;
+</div>
+<div class="upfront" style="display:none;">
+<input type="radio" name="filetype" value="pdfpre" />&nbsp;PDF (Pre-Paid)&nbsp;&nbsp;<button type="button" class="button" title="PDF" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="docpre" />&nbsp;DOC (Pre-Paid)&nbsp;<button type="button" class="button" title="DOC" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="esignpre" checked="checked" id="esignpre"/>&nbsp;EchoSign (Pre-Paid)&nbsp;
+</div>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Email to Client</div>
+<div class="field hw2">
+<div class="infield">
+<input type="text" name="emailclient" value="" class="tb" />
+</div>
+</div>
+<div class="field pk">
+<div class="infield">
+<button type="button" class="button" name="send"><span><b>Send</b></span></button>
+</div>
+</div>
+</div>
+</div><!--fcolumn-->
+<div style="clear:both"></div>
+
+</div><!--fpane-->
+</div><!--dpane-->
+<div class="dpane">
+<div class="frow">
+<div class="df_field" style="width:810px; text-align:right">
+<button type="button" class="button" name="finish"><span><b>Finish</b></span></button>
+</div>
+</div>
+</div>
+</div><!--content-->
+</div><!--header-->
+
+</div>
+
+
+<div id="dfProof" title="Proof of Payment" style="display:none; text-align: center; margin-top: 20px; font-size: 12px;">
+Have you received proof of the payment yet? <div style="margin-top: 20px">
+<input type="button" id="pfYes" value="Yes" />
+<input type="button" id="pfNo" value="No" />
+</div>
+</div>
+</div>
+
+<div class="fpane">
+<div class="fcolumn1">
+<div class="frow">
+<div class="flabel">Start Date</div>
+<div class="field hw">
+<div class="infield">
+<input name="startdate" class="tb indate" title="Start Date"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Terms</div>
+<div class="field hw">
+<div class="infield">
+<select name="terms" class="tb" title="Terms">
+<option value="12">12 months</option>
+<option value="6">6 months</option>
+<option value="3">3 months</option>
+<option value="1">Month-to-Month</option>
+</select>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Custom Amount</div>
+<div class="field hw">
+<div class="infield">
+<input name="amount" class="tb" title="Custom Amount"/>
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Select File type:</div>
+<div class="field fw">
+<div class="infield">
+<input type="radio" name="filetype" value="pdf" />&nbsp;PDF&nbsp;&nbsp;<button type="button" class="button" title="PDF" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="doc" />&nbsp;DOC&nbsp;<button type="button" class="button" title="DOC" name="download"><span><b>Download</b></span></button><br /><br />
+<input type="radio" name="filetype" value="esign" checked="checked" />&nbsp;EchoSign&nbsp;
+</div>
+</div>
+</div>
+<div class="frow">
+<div class="flabel">Email to Client</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="emailclient" class="tb2" value="" /> <button type="button" class="button" name="send"><span><b>Send</b></span></button>
+</div>
+</div>
+</div>
+</div>
+<div style="clear:both"></div>
+<table id="emailFlex"></table>
+<br />
+<table id="contractFlex"></table>
+<div style="clear:both"></div></div>
+
+<input type="hidden" name="editView" value="0" />
+
+<input type="hidden" name="logcall" value="0"/>
+<div id="email_form" title="Email" style="display:none">
+<div class="content">
+<h2>Email</h2>
+
+
+<div class="fpane" style="display:block;">
+<form style="display:none">
+<div>
+<button class="button" type="button" style="float:right; margin-right: -10px; margin-top:-45px" name="show_template"><span><b>Use a Template</b></span></button>
+</div><div style="clear:both"></div>
+
+<input type="text" name="action" style="display:none"/>
+<input type="text" name="item" style="display:none"/>
+<input type="text" name="module" style="display:none"/>
+<input type="text" name="id" style="display:none"/>
+<input type="text" name="attachments" style="display:none"/>
+
+
+<div class="frow" id="template_name" style="display:none; padding:10px; margin-top:15px;" title="Template">
+
+<div class="flabel">Template Name</div>
+<div class="field fw">
+<div class="infield">
+<input name="temp_name" class="tb" title="Name"/>
+<div style="float:right; padding-top:10px; margin-right:5px;">
+<button class="button" type="button" name="save"><span><b>Save</b></span></button>
+<button class="button" type="button" name="temp_cancel"><span><b>Cancel</b></span></button>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="frow" style="display:none">
+<div class="flabel">Template Name</div>
+<div class="field fw">
+<div class="infield">
+<input name="name" class="tb" title="Name"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Reason</div>
+<div class="field fw">
+<div class="infield">
+<select name="reason" class="tb dd_activity_reason">
+<option></option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- <div class="frow">
+<div class="flabel">Template</div>
+<div class="field fw">
+<div class="infield">
+<select name="template" class="tb">
+<option></option>
+</select>
+</div>
+</div>
+</div>-->
+
+
+
+<div class="frow">
+<div class="flabel">Email</div>
+<div class="field fw">
+<div class="infield">
+<input name="email" class="tb rtb" title="Email Address"/>
+<div>
+<span id="add_cc" class="href">Add Cc</span>
+<span id="add_bcc" class="href">Add Bcc</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="frow" id="cc" style="display:none">
+<div class="flabel">Cc</div>
+<div class="field fw">
+<div class="infield">
+<input name="cc" class="tb" title="cc"/>
+</div>
+</div>
+</div>
+
+<div class="frow" id="bcc" style="display:none">
+<div class="flabel">Bcc</div>
+<div class="field fw">
+<div class="infield">
+<input name="bcc" class="tb" title="bcc"/>
+</div>
+</div>
+</div>
+
+<div class="frow">
+<div class="flabel">Subject</div>
+<div class="field fw">
+<div class="infield">
+<input name="subject" class="tb rtb" title="Subject"/>
+</div>
+</div>
+</div>
+
+
+
+<div class="frow">
+<div class="flabel">Message</div>
+<div class="field fw">
+<div class="infield">
+<textarea name="message" class="tb rtb" style="height:200px" title="Message">&#13;&#13;&#13;</textarea>
+</div>
+</div>
+</div>
+
+<div class="frow" style="display:block">
+<div class="flabel">Attachement <br/>(Maximum file size - 10MB)</div>
+<div class="field h1">
+<div class="infield">
+<button type="button" class="button" id="email_attachment"><span><b>Upload</b></span></button>
+<span class="uploadproofresponse"></span>
+</div>
+</div>
+<div class="field h2">
+<div class="infield">
+
+<span class="uploaded_files"></span>
+</div>
+</div>
+</div>
+
+<div style="float:right; margin-top: 10px">
+<button class="button" type="button" name="use_template" style="display: none"><span><b>Select</b></span></button>
+<button class="button" type="button" name="send_email"><span><b>Send</b></span></button>
+<button class="button" type="button" name="save_template" style="display:none"><span><b>Save as Template</b></span></button>
+<button class="button" type="button" name="delete_template" style="display:none"><span><b>Delete Template</b></span></button>
+<button class="button" type="button" name="cancel" id="mailto_cancel"><span><b>Cancel</b></span></button>
+<button class="button" type="button" name="cancel_upload" id="cancel_upload" style="display:none"><span><b>Cancel</b></span></button>
+</div>
+</form>
+
+<div id="templates_div" style="display:block">
+<div style="margin-bottom: 10px;">
+Type:
+<select name="reason_type" class="tb dd_activity_reason">
+<option value="">All</option>
+</select>
+</div>
+<table id="templates"></table>
+</div>
+
+<div style="clear:both"></div>
+
+</div>
+
+
+
+
+</div>
+</div>
+<div id="chatdetails" title="Chat Details" style="display: none">
+<div class="chat-wrapper" id="loadconv">
+<div class="chat_row">
+<div class="name"></div>
+<div class="message"></div>
+</div>
+</div></div>
+
+<div id="attachtoclient" style="display:none">
+<table id="attachtoclientflex"></table>
+</div><style>
+#merge_details td{
+
+padding: 8px;
+line-height: 18px;
+text-align: left;
+vertical-align: top;
+border: 1px solid #dddddd;
+
+}
+
+#merge_details table{
+max-width: 100%;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+#merge_details tr:nth-child(odd) {
+background-color: #f9f9f9;
+}
+
+</style>
+
+<div style="display:none; overflow: auto" id="find_duplicate" title="Find Duplicate" class="find_duplicate">
+
+
+<div id="duplicate_table" style="display:block">
+<!--email, phone, contact name, business name-->
+
+<div style="padding: 10px;" id="dup_filter">
+<span style="margin-top: 10px;">
+<span>
+<label for="filter_email">Email:</label>
+<input type="checkbox" name="dup_email" id="filter_email" value="1" />
+</span>
+
+<span>
+<label for="filter_phone">Phone:</label>
+<input type="checkbox" name="dup_phone" id="filter_phone" value="1" />
+</span>
+<span>
+<label for="filter_fullname">Contact Name:</label>
+<input type="checkbox" name="dup_fullname" id="filter_fullname" value="1" />
+</span>
+<span>
+<label for="filter_business">Business Name:</label>
+<input type="checkbox" name="dup_business" id="filter_business" value="1" />
+</span>
+</span>
+<span>
+<button class="button" id="dup_refresh" style="margin-left: 30px"><span><b>Refresh</b></span></button>
+</span>
+
+</div>
+
+<table id="duplicate_list"></table>
+</div>
+<div id="merge_details" class="content" style="display:none">
+
+<form>
+<h2>Merge Details</h2>
+<div id="merge_message"></div>
+<table style="width: 100%">
+<tbody>
+<tr class="exempted">
+<td></td>
+<td>Lead 1</td>
+<td>Lead 2</td>
+</tr>
+
+<tr class="exempted">
+<td style="width: 150px"><b>Date Created<b/></td>
+<td style="max-width: 300px">
+<span class="1-created"></span>
+</td>
+<td style="max-width: 300px">
+<span class="2-created"></span>
+</td>
+</tr>
+
+<tr class="exempted">
+<td><b>Master Record</b></td>
+<td>
+<input type="radio" name="master" title="1-lid" checked/>
+<input type="text" name="lid-1" title="1-lid" style="display: none"/>
+<span class="1-lid"></span>
+</td>
+<td>
+<input type="radio" name="master" title="2-lid"/>
+<input type="text" name="lid-2" title="2-lid" style="display:none"/>
+<span class="2-lid"></span>
+</td>
+</tr>
+
+
+
+<tr>
+<td style="width: 150px"><b>Business Name<b/></td>
+<td style="max-width: 300px">
+<input type="radio" name="business" title="1-business"/>
+<span class="1-business"></span>
+</td>
+<td style="max-width: 300px">
+<input type="radio" name="business" title="2-business"/>
+<span class="2-business"></span>
+</td>
+</tr>
+<tr>
+<td><b>Contact Name</b></td>
+<td>
+<input type="radio" name="fullname" title="1-fullname"/>
+<span class="1-fullname"></span>
+<div>
+<input type="radio" name="save_alt_name" id="save_alt_name_1" title="1-fullname" class="save_alt"/>
+<label for="save_alt_name_1"><em>Save as Alternate Contact</em></label>
+</div>
+</td>
+<td>
+<input type="radio" name="fullname" title="2-fullname"/>
+<span class="2-fullname"></span>
+<div>
+<input type="radio" name="save_alt_name" id="save_alt_name_1" title="2-fullname" class="save_alt"/>
+<label for="save_alt_name_1"><em>Save as Alternate Contact</em></label>
+</div>
+</td>
+</tr>
+<tr>
+<td><b>Email Address</b></td>
+<td>
+<input type="radio" name="email" title="1-email"/>
+<span class="1-email"></span>
+<div>
+<input type="radio" name="save_alt_email" id="save_alt_email_1" title="1-email" class="save_alt"/>
+<label for="save_alt_email_1"><em>Save as Alternate Email</em></label>
+</div>
+</td>
+<td>
+<input type="radio" name="email" title="2-email"/>
+<span class="2-email"></span>
+<div>
+<input type="radio" name="save_alt_email" id="save_alt_email_2" title="2-email" class="save_alt"/>
+<label for="save_alt_email_2"><em>Save as Alternate Email</em></label>
+</div>
+</td>
+</tr>
+<tr>
+<td><b>Phone</b></td>
+<td>
+<input type="radio" name="phone" title="1-phone"/>
+<span class="1-phone"></span>
+<div>
+<input type="radio" name="save_alt_phone" id="save_alt_phone_1" title="1-phone" class="save_alt"/>
+<label for="save_alt_phone_1"><em>Save as Alternate Phone</em></label>
+</div>
+</td>
+<td>
+<input type="radio" name="phone" title="2-phone"/>
+<span class="2-phone"></span>
+<div>
+<input type="radio" name="save_alt_phone" id="save_alt_phone_2" title="2-phone" class="save_alt"/>
+<label for="save_alt_email_2"><em>Save as Alternate Phone</em></label>
+</div>
+</td>
+</tr>
+
+<tr>
+<td><b>Birthday</b></td>
+<td>
+<input type="radio" name="birthday" title="1-birthday"/>
+<span class="1-birthday_name"></span>
+</td>
+<td>
+<input type="radio" name="birthday" title="2-birthday"/>
+<span class="2-birthday_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Time Zone</b></td>
+<td>
+<input type="radio" name="timezone" title="1-timezone"/>
+<span class="1-timezone_name"></span>
+</td>
+<td>
+<input type="radio" name="timezone" title="2-timezone"/>
+<span class="2-timezone_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Street</b></td>
+<td>
+<input type="radio" name="street" title="1-street"/>
+<span class="1-street"></span>
+</td>
+<td>
+<input type="radio" name="street" title="2-street"/>
+<span class="2-street"></span>
+</td>
+</tr>
+<tr>
+<td><b>City</b></td>
+<td>
+<input type="radio" name="city" title="1-city"/>
+<span class="1-city"></span>
+</td>
+<td>
+<input type="radio" name="city" title="2-city"/>
+<span class="2-city"></span>
+</td>
+</tr>
+<tr>
+<td><b>State</b></td>
+<td>
+<input type="radio" name="state" title="1-state"/>
+<span class="1-state"></span>
+</td>
+<td>
+<input type="radio" name="state" title="2-state"/>
+<span class="2-state"></span>
+</td>
+</tr>
+<tr>
+<td><b>Country</b></td>
+<td>
+<input type="radio" name="country" title="1-country"/>
+<span class="1-country"></span>
+</td>
+<td>
+<input type="radio" name="country" title="2-country"/>
+<span class="2-country"></span>
+</td>
+</tr>
+<tr>
+<td><b>Postal</b></td>
+<td>
+<input type="radio" name="zip" title="1-zip"/>
+<span class="1-zip"></span>
+</td>
+<td>
+<input type="radio" name="zip" title="2-zip"/>
+<span class="2-zip"></span>
+</td>
+</tr>
+<tr>
+<td><b>Alternate Contact Name</b></td>
+<td>
+<input type="radio" name="alt_name" title="1-alt_name"/>
+<span class="1-alt_name"></span>
+</td>
+<td>
+<input type="radio" name="alt_name" title="2-alt_name"/>
+<span class="2-alt_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Alternate Phone</b></td>
+<td>
+<input type="radio" name="alt_phone" title="1-alt_phone"/>
+<span class="1-alt_phone"></span>
+</td>
+<td>
+<input type="radio" name="alt_phone" title="2-alt_phone"/>
+<span class="2-alt_phone"></span>
+</td>
+</tr>
+<tr>
+<td><b>Alternate Email</b></td>
+<td>
+<input type="radio" name="alt_email" title="1-alt_email"/>
+<span class="1-alt_email"></span>
+</td>
+<td>
+<input type="radio" name="alt_email" title="2-alt_email"/>
+<span class="2-alt_email"></span>
+</td>
+</tr>
+<tr>
+<td><b>Business Type</b></td>
+<td>
+<input type="radio" name="btype" title="1-btype"/>
+<span class="1-btype_name"></span>
+</td>
+<td>
+<input type="radio" name="btype" title="2-btype"/>
+<span class="2-btype_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Cross Sell</b></td>
+<td>
+<input type="radio" name="cross_sell" title="1-cross_sell"/>
+<span class="1-cross_sell_name"></span>
+</td>
+<td>
+<input type="radio" name="cross_sell" title="2-cross_sell"/>
+<span class="2-cross_sell_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Competitor</b></td>
+<td>
+<input type="radio" name="competitor" title="1-competitor"/>
+<span class="1-competitor_name"></span>
+</td>
+<td>
+<input type="radio" name="competitor" title="2-competitor"/>
+<span class="2-competitor_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Stage</b></td>
+<td>
+<input type="radio" name="stage" title="1-stage"/>
+<span class="1-stage_name"></span>
+</td>
+<td>
+<input type="radio" name="stage" title="2-stage"/>
+<span class="2-stage_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Lead Source</b></td>
+<td>
+<input type="radio" name="lead_source" title="1-lead_source"/>
+<span class="1-lead_source_name"></span>
+</td>
+<td>
+<input type="radio" name="lead_source" title="2-lead_source"/>
+<span class="2-lead_source_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Competitor</b></td>
+<td>
+<input type="radio" name="competitor" title="1-competitor"/>
+<span class="1-competitor_name"></span>
+</td>
+<td>
+<input type="radio" name="competitor" title="2-competitor"/>
+<span class="2-competitor_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Status with Competitor</b></td>
+<td>
+<input type="radio" name="comp_status" title="1-comp_status"/>
+<span class="1-comp_status_name"></span>
+</td>
+<td>
+<input type="radio" name="comp_status" title="2-comp_status"/>
+<span class="2-comp_status_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Competitor Exp. Date</b></td>
+<td>
+<input type="radio" name="exp_date" title="1-exp_date"/>
+<span class="1-exp_date_name"></span>
+</td>
+<td>
+<input type="radio" name="exp_date" title="2-exp_date"/>
+<span class="2-exp_date_name"></span>
+</td>
+</tr>
+
+
+<tr>
+<td><b>Sales Developer</b></td>
+<td>
+<input type="radio" name="created_by" title="1-created_by"/>
+<span class="1-created_by_name"></span>
+</td>
+<td>
+<input type="radio" name="created_by" title="2-created_by"/>
+<span class="2-created_by_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Sales Person</b></td>
+<td>
+<input type="radio" name="salesperson" title="1-salesperson"/>
+<span class="1-salesperson_name"></span>
+</td>
+<td>
+<input type="radio" name="salesperson" title="2-salesperson"/>
+<span class="2-salesperson_name"></span>
+</td>
+</tr>
+<tr>
+<td><b>Project Close</b></td>
+<td>
+<input type="radio" name="projected_close" title="1-projected_close"/>
+<span class="1-projected_close_name"></span>
+</td>
+<td>
+<input type="radio" name="projected_close" title="2-projected_close"/>
+<span class="2-projected_close_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Do Not Email</b></td>
+<td>
+<input type="radio" name="do_not_email" title="1-do_not_email"/>
+<span class="1-do_not_email_name"></span>
+</td>
+<td>
+<input type="radio" name="do_not_email" title="2-do_not_email"/>
+<span class="2-do_not_email_name"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Consignee</b></td>
+<td>
+<input type="radio" name="consignees" title="1-consignees"/>
+<span class="1-consignees"></span>
+</td>
+<td>
+<input type="radio" name="consignees" title="2-consignees"/>
+<span class="2-consignees"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Shippers</b></td>
+<td>
+<input type="radio" name="shippers" title="1-shippers"/>
+<span class="1-shippers"></span>
+</td>
+<td>
+<input type="radio" name="shippers" title="2-shippers"/>
+<span class="2-shippers"></span>
+</td>
+</tr>
+
+<tr>
+<td><b>Products</b></td>
+<td>
+<input type="radio" name="products" title="1-products"/>
+<span class="1-products"></span>
+</td>
+<td>
+<input type="radio" name="products" title="2-products"/>
+<span class="2-products"></span>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td><b>Description</b></td>
+<td style="max-width: 300px">
+<input type="radio" name="message" title="1-message"/>
+<span class="1-message"></span>
+</td>
+<td style="max-width: 300px">
+<input type="radio" name="message" title="2-message"/>
+<span class="2-message"></span>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div style="margin-top: 10px; float: right">
+<button class="button" type="button" name="duplicate_list"><span><b>Back</b></span></button>
+<button class="button" type="button" name="merge"><span><b>Merge Duplicates</b></span></button>
+<button class="button" type="button" name="create_new" style="display:none;"><span><b>Create New Lead</b></span></button>
+</div>
+</form>
+</div>
+</div><div id="add_new_list" title="Add New List" style="display:none">
+
+<form class="content">
+<div class="fpane" style="display:block">
+<div class="frow">
+<div class="flabel">List Name</div>
+<div class="field fw">
+<div class="infield">
+<input type="text" name="list_name" class="tb rtb"/>
+</div>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+
+<div style="float:right; margin-top: 10px;">
+<button class="button"><span><b>Add</b></span></button>
+</div>
+
+</form>
+</div><a class='pklist' name='ezemail' title='EZ Email View'></a>
+
+
+<!--core users roles-->
+<input type="text" name="core_user_roles" value="1" style="display:none"/>
+<!--end core user roles-->
+
+
+<!--temp values-->
+<input type="text" name="for_new_item" id="for_new_item" value="0" style="display:none"/>
+<!--end temp values-->
+
+<!-- Add new competitor -->
+<div id="compDialog" style="display:none" title="New Competitor">
+<br />
+Competitor: <input type="text" name="newCompetitor" class="tb" />
+<button id="addComp" class="button" type="button" style="float:right;"><span><b>Add</b></span></button>
+</div> 
