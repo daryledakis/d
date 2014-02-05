@@ -6,11 +6,11 @@
  * and open the template in the editor.
  */
     function ako() {
-        echo "AKO!";
+        echo "AKO!!";
     }
     
     function ikaw() {
-        echo "IKAW!";
+        echo "IKAW!!";
     }
 
     $like = FALSE;
