@@ -1,0 +1,14 @@
+This should work on localhost/localhost:8080*
+
+*The instruction says localhost:8888, but when I ran uWamp, it's actually on port 8080.
+
+All exam items could be found here:
+http://localhost/ddakis/
+
+1) http://localhost/ddakis/index.php/lastday --> DONE
+2) http://localhost/ddakis/index.php/palindrome --> DONE
+3) http://localhost/ddakis/index.php/numbers --> DONE
+4) http://localhost/ddakis/index.php/fibonacci --> DONE
+5) http://localhost/ddakis/index.php/factorial --> DONE
+6) http://localhost/ddakis/index.php/signup --> DONE
+7) http://localhost/ddakis/index.php/nav --> DONE

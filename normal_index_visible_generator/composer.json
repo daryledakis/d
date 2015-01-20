@@ -1,0 +1,16 @@
+{
+    "require-dev": {
+        "phpspec/phpspec": "~2.0",
+        "squizlabs/php_codesniffer": "2.0.0a2",
+        "pdepend/pdepend": "2.0.*",
+        "phpmd/phpmd": "dev-master"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    }
+}
