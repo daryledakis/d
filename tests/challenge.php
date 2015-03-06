@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>52-week Money Challenge</title>
         <link href = "../css/style.css" rel = "stylesheet" type = "text/css" />
         <script src = "../js/jquery-1.10.2.js" type = "text/javascript"></script>
         <script>
@@ -38,21 +39,19 @@
                             total += (amount * x);
                             var etodate = getDateFromWeek(x);
 //                            console.log(Months[etodate.getMonth()]);
-                            if (prevmonth == etodate.getMonth()) {
+                            if (prevmonth === etodate.getMonth()) {
                                 // Total Savings per Month
                                 amountmonth += (amount * x);
-                                console.log(amount+"|"+x+"|"+amountmonth);
                             }   
                             else {
-                                html += "</tr><tr><td colspan = 2>Savings per cut-off: </td><td class = 'right'>"+amountmonth+"</td><td>&nbsp;</td></tr><tr>";
-                                console.log(amount+"|"+x+"|"+amountmonth);
-                                console.log("--------");
+                                html += "</tr><tr class = 'highlight'><td colspan = 2>Savings per month/cut-off: </td><td class = 'right'>"+amountmonth+"/"+amountmonth/2+"</td><td>&nbsp;</td></tr><tr>";
                                 amountmonth = amount * x;
                             }
                             html += "<tr><td class = 'left'>"+Months[etodate.getMonth()]+"</td><td class = 'center'>" + x + "</td><td class = 'right'>" + amount * x;
                             html += "<td class = 'right'>" + total + "</td></tr>";
                             prevmonth = etodate.getMonth(); 
                         }
+                        html += "</tr><tr class = 'highlight'><td colspan = 2>Savings per month/cut-off: </td><td class = 'right'>"+amountmonth+"/"+amountmonth/2+"</td><td>&nbsp;</td></tr><tr>";
                         html += "</tbody></table>";
                         $('#result').removeClass('error').addClass('success').text('Total: ' + total);
                         $('#chart').html(html);

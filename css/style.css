@@ -1,16 +1,20 @@
 div.error {
-	color: red;
+    color: red;
 }
 
 div.success {
-	color: green;
+    color: green;
 }
 
 
 td.center {
-	text-align: center;
+    text-align: center;
 }
 
 td.right {
-	text-align: right;
+    text-align: right;
+}
+
+tr.highlight {
+    background-color: lime;
 }
