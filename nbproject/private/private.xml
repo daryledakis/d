@@ -9,6 +9,8 @@
             <file>file:/C:/xampp/htdocs/d/challenge.php</file>
             <file>file:/C:/xampp/htdocs/d/like.php</file>
         </group>
-        <group name="IG"/>
+        <group name="IG">
+            <file>file:/C:/home/genius/public_html/d/scripts/core-292.php</file>
+        </group>
     </open-files>
 </project-private>
