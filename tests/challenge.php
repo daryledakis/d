@@ -17,7 +17,7 @@
             }
 			
             $(document).ready(function() {
-                $('#amount').val(20)
+                $('#amount').val(50)
                             .focus()
                             .on('keyup', function(e) {
                                 var code = e.which;
